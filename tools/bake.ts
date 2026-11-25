@@ -5,8 +5,9 @@
 //
 //   bun run bake [--out assets/models/scene.glb] [--no-build]
 //
-// Emission: ThreeRT's emissive is in nits; glTF's is a factor × KHR_materials_emissive_strength. The strength written
-// is nits / 100 (100 nits = 1, a white screen), and the nits are kept in the material's extras (`emissiveNits`).
+// Emission: ThreeRT's emissive is in nits, and so is a GLB's emissiveFactor × KHR_materials_emissive_strength when
+// ThreeRT draws it (EarthRT's convention for places too: the web scales it by its exposure). The nits are also kept in
+// the material's extras (`emissiveNits`).
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { validatePlace, type SceneContent } from "../earthrt/core/places.ts";
@@ -15,7 +16,8 @@ import { loadThree, readManifest, root, runScene, type ThreeModule } from "./lib
 import { writeManifest } from "./lib/json.ts";
 import { buildScene } from "./build.ts";
 
-const NITS_PER_UNIT = 100;
+/** glTF emissive strength per nit (ThreeRT reads the strength as nits). */
+const NITS_PER_UNIT = 1;
 
 const args = process.argv.slice(2);
 const flag = (n: string) => {
