@@ -113,7 +113,10 @@ export function toGlb(obj: ThreeModule, THREE: ThreeModule, warnings: string[]) 
       if (!g.attributes.normal) g.computeVertexNormals?.();
       const N = g.attributes.normal?.array as ArrayLike<number> | undefined;
       const U = g.attributes.uv?.array as ArrayLike<number> | undefined;
-      const I = g.index?.array as ArrayLike<number> | undefined;
+      // ThreeRT keeps the index as a Uint32Array (empty: not indexed); three.js as an attribute
+      const rawIndex = g.index as ArrayLike<number> & { array?: ArrayLike<number> } | null | undefined;
+      const indexArr = rawIndex ? (rawIndex.array ?? rawIndex) : undefined;
+      const I = indexArr && indexArr.length ? indexArr : undefined;
       const total = I ? I.length : P.length / 3;
       const start = mat.flatShading ? 0 : grp.start, end = Math.min(total, mat.flatShading ? total : grp.start + grp.count);
       const key = mat.uuid as string;
