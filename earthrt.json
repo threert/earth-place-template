@@ -1,0 +1,17 @@
+{
+  "format": "earthrt/place@1",
+  "id": "kamo-lantern",
+  "title": "A stone lantern by the Kamo",
+  "summary": "The place template's example: a lit stone lantern on a gravel bed on the west bank of the Kamo river, Kyoto.",
+  "kind": "site",
+  "anchor": { "lat": 35.00905, "lon": 135.77135, "height": 0, "heightRef": "terrain", "heading": 0 },
+  "bounds": { "radius": 4 },
+  "visibleFrom": 600,
+  "minDistance": 0.5,
+  "content": [
+    { "type": "scene", "entry": "dist/scene.js", "source": "scene/main.ts", "fallback": "assets/models/scene.glb" }
+  ],
+  "start": { "position": [2.2, 1.5, 3.4], "target": [0, 0.9, 0] },
+  "license": "CC0-1.0",
+  "credits": []
+}
