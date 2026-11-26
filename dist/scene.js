@@ -1,4 +1,4 @@
-// Built from scene/main.ts by `bun run build`: edit the source, not this file.
+// Built from scene/main.ts (sources 300e64e66517d0e2) by `bun run build`: edit the source, not this file.
 var { defineProperty: __defProp, getOwnPropertyNames: __getOwnPropNames, getOwnPropertyDescriptor: __getOwnPropDesc } = Object, __hasOwnProp = Object.prototype.hasOwnProperty;
 function __accessProp(key) {
   return this[key];
