@@ -1,7 +1,7 @@
 // The place's scene: a ThreeRT scene module (SPEC § 5, `scene` content), built in the place's frame (metres; x east,
 // y up, z south at the anchor, turned by the heading). `bun run build` bundles it to dist/scene.js (CommonJS,
 // `@threert/scene` left to the loader); `bun run bake` turns what it builds into assets/models/scene.glb, which the
-// web shows instead of it (the manifest's `fallback`).
+// map (three.js) shows from the air instead of it (the manifest's `fallback`). The traced view draws this module.
 //
 // This example is a stone lantern (ishidoro) on a gravel bed. Replace it with your place.
 import { BoxGeometry, CylinderGeometry, Group, Mesh, MeshStandardMaterial, SphereGeometry, type Object3D } from "@threert/scene";
